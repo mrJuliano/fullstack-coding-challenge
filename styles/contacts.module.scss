@@ -1,0 +1,20 @@
+.container {
+  width: fit-content;
+  min-width: 20rem;
+  height: fit-content;
+  background: beige;
+  border-radius: 1rem;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.integrations {
+  margin: 1rem;
+
+  img {
+    margin-left: 1rem;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+  }
+}

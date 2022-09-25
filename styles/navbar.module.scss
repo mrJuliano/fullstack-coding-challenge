@@ -1,0 +1,26 @@
+.pageRoutes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 20rem;
+  margin: 0 auto;
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+.navbar {
+  display: flex;
+  position: relative;
+  padding: 1rem 0;
+  background: azure;
+  border-bottom: solid 1px rgb(215, 226, 255);
+}
+
+.settings {
+  margin-left: auto;
+}
+
+.link {
+  padding: 0 3rem;
+}

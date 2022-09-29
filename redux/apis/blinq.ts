@@ -20,9 +20,10 @@ export const blinkApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: blinqApiLink,
   }),
+  tagTypes: ["UserIntegrations"],
   reducerPath: "blinq",
   endpoints: (build) => ({
-    userIntegrations: build.query<Integration[], void>({
+    getIntegrations: build.query<Integration[], void>({
       query: () => {
         return {
           url: `getIntegrations`,
@@ -30,13 +31,14 @@ export const blinkApi = createApi({
         };
       },
     }),
-    user: build.query<User, void>({
+    getUser: build.query<User, void>({
       query: () => {
         return {
           url: `getUser`,
           method: "GET",
         };
       },
+      providesTags: ["UserIntegrations"],
     }),
     setUserIntegration: build.mutation<boolean, integrationQueryParams>({
       query: ({
@@ -50,6 +52,7 @@ export const blinkApi = createApi({
           body: { userId, integrationId, integrationData },
         };
       },
+      invalidatesTags: ["UserIntegrations"],
     }),
     linkContactIntegration: build.mutation<boolean, contactIntegrationParams>({
       query: ({ contact, integrationData }: contactIntegrationParams) => {
@@ -64,8 +67,8 @@ export const blinkApi = createApi({
 });
 
 export const {
-  useUserIntegrationsQuery,
-  useUserQuery,
+  useGetIntegrationsQuery,
+  useGetUserQuery,
   useSetUserIntegrationMutation,
   useLinkContactIntegrationMutation,
 } = blinkApi;

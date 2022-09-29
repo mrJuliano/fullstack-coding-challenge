@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { Contact, Integration, IntegrationData, User } from "../../database";
 import {
   useLinkContactIntegrationMutation,
-  useUserIntegrationsQuery,
-  useUserQuery,
+  useGetIntegrationsQuery,
+  useGetUserQuery,
 } from "../../redux/apis/blinq";
 import styles from "../../styles/contacts.module.scss";
 
@@ -78,8 +78,8 @@ const Contact = ({ contact, userData, integrations }: ContactProps) => {
 
 export default function ContactsList() {
   const { data: integrations, isLoading: integrationLoading } =
-    useUserIntegrationsQuery();
-  const { data: userData, isLoading: userLoading } = useUserQuery();
+    useGetIntegrationsQuery();
+  const { data: userData, isLoading: userLoading } = useGetUserQuery();
 
   return (
     <div>

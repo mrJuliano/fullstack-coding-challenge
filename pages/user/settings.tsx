@@ -1,13 +1,16 @@
 import Head from "next/head";
 import { IntegrationSetup } from "../../components/integration-setup/integration-setup";
 import LoadingSpinner from "../../components/spinner/spinner";
-import { useUserIntegrationsQuery, useUserQuery } from "../../redux/apis/blinq";
+import {
+  useGetIntegrationsQuery,
+  useGetUserQuery,
+} from "../../redux/apis/blinq";
 import styles from "../../styles/settings.module.scss";
 
-export default function Contacts() {
+export default function Settings() {
   const { data: integrations, isLoading: integrationLoading } =
-    useUserIntegrationsQuery();
-  const { data: userData, isLoading: userLoading } = useUserQuery();
+    useGetIntegrationsQuery();
+  const { data: userData, isLoading: userLoading } = useGetUserQuery();
 
   return (
     <div className={styles.container}>
